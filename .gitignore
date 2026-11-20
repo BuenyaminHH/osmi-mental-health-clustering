@@ -1,0 +1,15 @@
+# Originaldaten und lokale Kopien
+archive*.zip
+*.csv.zip
+mental-heath-in-tech-2016_20161114.csv
+survey.csv
+*.xlsx
+# Notebook-Artefakte
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+# Wissenschaftliche Prüfungsunterlagen nicht in das öffentliche Repo hochladen
+*Aufgabenstellung*.pdf
+*Prüfungsleitfaden*.pdf
+*Zitierleitfaden*.pdf
