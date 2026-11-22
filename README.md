@@ -19,7 +19,7 @@ Begleitender Python-Code zur IU-Fallstudie im Modul **Unsupervised Learning und 
 
 ### Ausgewählte Ergebnisdateien
 
-Nach dem Upload der nachfolgenden CSV-Dateien in `results/` lassen sich zentrale Zahlen der Fallstudie direkt prüfen:
+Die folgenden aggregierten CSV-Dateien befinden sich im Verzeichnis results/ und ermöglichen die direkte Überprüfung zentraler Ergebnisse der Fallstudie:
 
 | Datei | Inhalt |
 | --- | --- |
@@ -28,7 +28,7 @@ Nach dem Upload der nachfolgenden CSV-Dateien in `results/` lassen sich zentrale
 | `externe_tests.csv` | Chi-Quadrat-Kennzahlen, numerische p-Werte, korrigiertes Cramér's V und Prüfung erwarteter Zellhäufigkeiten |
 | `arbeitsland_3_gruppen_prozent.csv` | Anteile der zusammengefassten Ländergruppen USA / UK / andere Länder je Cluster |
 
-Die CSVs enthalten aggregierte Ergebnisse, **keine einzelnen Befragtenzeilen**. Nicht jede beim Ausführen erzeugte Tabelle muss im Repository abgelegt werden. Die übrigen Ausgaben sind im Notebook dokumentiert und können aus den Originaldaten reproduziert werden.
+Die CSVs enthalten aggregierte Ergebnisse, **keine einzelnen Befragtenzeilen**.
 
 ## Datenquelle und Lizenz
 
@@ -44,7 +44,7 @@ Die Originaldaten sind **nicht Bestandteil dieses Repositories**. Es werden kein
 1. Die Original-ZIP des Datensatzes von Kaggle herunterladen. Sie enthält die Datei `mental-heath-in-tech-2016_20161114.csv` (Schreibweise wie in der Quelle).
 2. `OSMI_Fallstudie_FINAL.ipynb` in Google Colab öffnen.
 3. Über **Laufzeit → Alle ausführen** die Analyse starten. Das Notebook installiert bei Bedarf `kmodes==0.12.2` und fordert die ZIP-Datei zum Upload an, wenn sie nicht bereits verfügbar ist.
-4. Nach Abschluss den Ordner `/content/results/` öffnen. Dort liegen Diagramme und aggregierte CSV-Ergebnistabellen. Die oben genannten CSVs können daraus heruntergeladen und im Repository unter `results/` bereitgestellt werden.
+4. Nach Abschluss werden die Diagramme und aggregierten Ergebnistabellen im Verzeichnis /content/results/ gespeichert. Ausgewählte Ergebnisdateien sind zusätzlich im Repository unter results/ verfügbar.
 5. Für die Reproduzierbarkeit nur aggregierte Ausgaben veröffentlichen; keine Rohdaten, Upload-Artefakte oder individuellen Beobachtungen in das Repository übernehmen.
 
 Außerhalb von Colab können die Abhängigkeiten mit `python -m pip install -r requirements.txt` installiert werden. Die Eingabedaten sind dann entsprechend dem Notebook bereitzustellen; einzelne Colab-Uploadfunktionen setzen eine Colab-Laufzeit voraus.
