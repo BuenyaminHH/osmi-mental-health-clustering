@@ -1,48 +1,70 @@
 # OSMI Mental Health in Tech Survey 2016 – Clusteranalyse
 
-Begleitender Python-Code zur IU-Fallstudie im Modul **Unsupervised Learning und Feature Engineering**. Ziel ist die explorative Untersuchung **wahrgenommener betrieblicher Unterstützungsbedingungen für psychische Gesundheit**. Es werden keine medizinischen Diagnosen oder individuellen Risikoprognosen erstellt.
+Begleitender Python-Code zur IU-Fallstudie im Modul **Unsupervised Learning und Feature Engineering**. Untersucht werden explorativ **wahrgenommene betriebliche Unterstützungsbedingungen für psychische Gesundheit**. Es werden weder medizinische Diagnosen noch individuelle Risikoprognosen erstellt.
 
 ## Projektinhalte
 
-- Exploration und Fehlwertanalyse der 63 ursprünglichen Fragebogenmerkmale
-- Datenbereinigung und Feature Engineering, darunter Rollen-Multi-Hot-Encoding
-- K-Means-Clustering auf sechs betrieblichen Merkmalen und alternative Segmentierung ohne die Informationsfrage
-- Vergleich mit k-Modes (Huang/Cao), Clusterzahlwahl, Sensitivitäts- und Stabilitätsanalysen
-- Dimensionsreduktion mit PCA und MCA, Cluster-Heatmaps und externe Kontextvergleiche
+- Explorative Datenanalyse und Fehlwertprüfung der 63 ursprünglichen Fragebogenmerkmale
+- Datenbereinigung und Feature Engineering, einschließlich Rollen-Multi-Hot-Encoding
+- K-Means-Clustering auf sechs betrieblichen Merkmalen und alternative Fünf-Merkmals-Segmentierung
+- Vergleich mit k-Modes (Huang-/Cao-Initialisierung), Sensitivitäts- und Teilstichprobenanalysen
+- Visualisierung mit PCA, MCA und Cluster-Heatmaps sowie Prüfung externer Kontextvariablen
 
-**Dateien:** `OSMI_Fallstudie_FINAL.ipynb` enthält den Code mit den in Colab gespeicherten Ausgaben. `results/` enthält ausgewählte, aus **genau diesem Notebook** exportierte aggregierte Abbildungen. `requirements.txt` dokumentiert die Python-Abhängigkeiten. Zusätzliche aggregierte CSV-Tabellen werden beim Ausführen im Ordner `results/` erzeugt.
+## Repository-Struktur
+
+- `OSMI_Fallstudie_FINAL.ipynb` – ausführbarer Analysecode mit gespeicherten Ergebnisausgaben
+- `requirements.txt` – Python-Abhängigkeiten; das Notebook verwendet `kmodes==0.12.2`
+- `results/` – ausgewählte **aggregierte** Diagramme und Ergebnistabellen
+- `results/README.md` – ergänzende Erläuterungen zu den exportierten Ergebnissen
+
+### Ausgewählte Ergebnisdateien
+
+Nach dem Upload der nachfolgenden CSV-Dateien in `results/` lassen sich zentrale Zahlen der Fallstudie direkt prüfen:
+
+| Datei | Inhalt |
+| --- | --- |
+| `clusterprofil_6_merkmale.csv` | Antwortanteile und Abweichungen für die Hauptsegmentierung |
+| `clusteranteile_je_unternehmensgroesse.csv` | Clusteranteile **innerhalb** der Unternehmensgrößenklassen |
+| `externe_tests.csv` | Chi-Quadrat-Kennzahlen, numerische p-Werte, korrigiertes Cramér's V und Prüfung erwarteter Zellhäufigkeiten |
+| `arbeitsland_3_gruppen_prozent.csv` | Anteile der zusammengefassten Ländergruppen USA / UK / andere Länder je Cluster |
+
+Die CSVs enthalten aggregierte Ergebnisse, **keine einzelnen Befragtenzeilen**. Nicht jede beim Ausführen erzeugte Tabelle muss im Repository abgelegt werden. Die übrigen Ausgaben sind im Notebook dokumentiert und können aus den Originaldaten reproduziert werden.
 
 ## Datenquelle und Lizenz
 
-- Originaldaten: **Open Sourcing Mental Health (OSMI), Mental Health in Tech Survey 2016**.
+- Originaldaten: **Open Sourcing Mental Illness (OSMI), Mental Health in Tech Survey 2016**
 - Kaggle: https://www.kaggle.com/datasets/osmi/mental-health-in-tech-2016
-- Primärquelle: https://www.osmihelp.org/research.html
-- Lizenz der **2016er Daten** laut OSMI: **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**; siehe https://creativecommons.org/licenses/by-sa/4.0/ . Diese Lizenzangabe bezieht sich auf die Datenquelle und ist **keine automatische Lizenzfreigabe des eigenen Codes**.
+- OSMI: https://www.osmihelp.org/research.html
+- Lizenzhinweis zu den Originaldaten: **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**, siehe https://creativecommons.org/licenses/by-sa/4.0/
 
-Die Originaldaten sind nicht Bestandteil dieses Repositories. Es werden keine IU-Aufgabenblätter oder individuellen Fragebogenantworten veröffentlicht.
+Die Originaldaten sind **nicht Bestandteil dieses Repositories**. Es werden keine IU-Aufgabenblätter oder individuellen Fragebogenantworten veröffentlicht. Die Lizenzangabe bezieht sich auf den Quelldatensatz und ist **keine automatische Freigabe des eigenen Codes**. Für diesen Code wird hier keine zusätzliche Lizenz erklärt.
 
-## Notebook in Google Colab ausführen
+## Ausführung in Google Colab
 
-1. Die Original-ZIP über Kaggle herunterladen. Sie enthält `mental-heath-in-tech-2016_20161114.csv` (Schreibweise wie in der Quelle).
-2. `OSMI_Fallstudie_FINAL.ipynb` in [Google Colab](https://colab.research.google.com/) öffnen.
-3. **Laufzeit → Alle ausführen** wählen. Die erste Codezelle installiert `kmodes==0.12.2`. Das Notebook lädt die ZIP-Datei auf Nachfrage hoch, sofern diese noch nicht im Colab-Dateisystem liegt. Den Namen `archive (1).zip` trägt das ursprüngliche Arbeitsarchiv; die Upload-Funktion akzeptiert auch andere ZIP-Dateinamen, solange genau die erwartete CSV darin liegt.
-4. Die Zellen bis einschließlich Abschnitt 8 ausführen und die gespeicherten Ergebnisdiagramme sowie die in `/content/results/` neu erzeugten CSV-Dateien prüfen.
-5. Für einen neuen öffentlichen Stand das ausgeführte Notebook erneut als `.ipynb` herunterladen; dabei sicherstellen, dass keine individuellen Datensätze oder vertraulichen Uploadinformationen in den Ausgaben stehen.
+1. Die Original-ZIP des Datensatzes von Kaggle herunterladen. Sie enthält die Datei `mental-heath-in-tech-2016_20161114.csv` (Schreibweise wie in der Quelle).
+2. `OSMI_Fallstudie_FINAL.ipynb` in Google Colab öffnen.
+3. Über **Laufzeit → Alle ausführen** die Analyse starten. Das Notebook installiert bei Bedarf `kmodes==0.12.2` und fordert die ZIP-Datei zum Upload an, wenn sie nicht bereits verfügbar ist.
+4. Nach Abschluss den Ordner `/content/results/` öffnen. Dort liegen Diagramme und aggregierte CSV-Ergebnistabellen. Die oben genannten CSVs können daraus heruntergeladen und im Repository unter `results/` bereitgestellt werden.
+5. Für die Reproduzierbarkeit nur aggregierte Ausgaben veröffentlichen; keine Rohdaten, Upload-Artefakte oder individuellen Beobachtungen in das Repository übernehmen.
 
-Außerhalb von Colab können die Abhängigkeiten mit `python -m pip install -r requirements.txt` installiert werden; die ZIP ist dann in das Arbeitsverzeichnis neben das Notebook zu legen. Die Colab-Uploadfunktion benötigt die Colab-Laufzeit.
+Außerhalb von Colab können die Abhängigkeiten mit `python -m pip install -r requirements.txt` installiert werden. Die Eingabedaten sind dann entsprechend dem Notebook bereitzustellen; einzelne Colab-Uploadfunktionen setzen eine Colab-Laufzeit voraus.
 
-## Zentrale Ergebnisse der ausgeführten Analyse
+**Hinweis zu `externe_tests.csv`:** Der CSV-Export im finalen Notebook erfolgt vor dem Hinzufügen der formatierten Anzeigespalte `p_formatiert`. Die Datei enthält die **numerischen** p-Werte (`p_Wert`); die formatierten Angaben erscheinen zusätzlich in der Notebook-Ausgabe. Die Länderauswertung wird wegen kleiner erwarteter Zellhäufigkeiten in den ursprünglichen Einzelkategorien separat für die Gruppen USA / UK / andere Länder geprüft.
 
-- **1.146 abhängig Beschäftigte** aus 1.433 Fragebogeneinträgen.
-- K-Means (sechs Merkmale, `k = 3`): Clustergrößen **308 / 340 / 498**; euklidische Silhouette **0,15485**.
-- Ohne die Informationsfrage: Clustergrößen **357 / 487 / 302**, Silhouette **0,17688**; ARI zwischen den Lösungen **0,06799**.
-- Clusterzuordnung und Informationsfrage: korrigiertes Cramér's V **0,8967**, ARI **0,8185**. Die Informationsfrage prägt die Hauptlösung stark.
-- k-Modes (Huang) erreicht kategoriale Abweichungskosten **2.492**; die K-Means-Partition erreicht unter **derselben k-Modes-Kostenfunktion** **2.606**. Die Verfahren sind nicht anhand einer einzelnen Kennzahl insgesamt zu bewerten.
-- Medianer Subsampling-ARI: K-Means etwa **0,989**, k-Modes (Huang) etwa **0,381**.
-- Stärkster untersuchter externer Zusammenhang: Unternehmensgröße mit der Clusterzuordnung (korrigiertes Cramér's V etwa **0,241**). Die zusammengefassten Ländergruppen wurden bei einer minimalen erwarteten Zellzahl von **35,75** getestet.
+## Zentrale Ergebnisse
 
-Die Ergebnisse beschreiben Antwortmuster und betriebliche Wahrnehmungen, **keine stabilen psychologischen Mitarbeitendentypen**. Die Stichprobe ist nicht nachweislich repräsentativ für alle Technologieunternehmen. Mögliche gemeinsame Arbeitgeber, die dominierende Informationsfrage und die geringe Trennschärfe begrenzen die Generalisierbarkeit. Die Cluster dürfen nicht zur individuellen Personalbewertung verwendet werden.
+- **1.146 abhängig Beschäftigte** aus ursprünglich 1.433 Befragungseinträgen
+- K-Means mit sechs Merkmalen (`k=3`): Clustergrößen **308 / 340 / 498**, euklidische Silhouette **0,15485**
+- Alternativmodell ohne Informationsfrage: Clustergrößen **357 / 487 / 302**, Silhouette **0,17688**; Übereinstimmung mit dem Hauptmodell **ARI 0,06799**
+- Starker Zusammenhang zwischen Hauptcluster und Informationsfrage: korrigiertes Cramér's V **0,8967**, ARI **0,8185**
+- k-Modes (Huang) erreicht unter der kategorialen Kostenfunktion **2.492**, die K-Means-Partition **2.606** Abweichungskosten
+- Medianer Subsampling-ARI: K-Means ca. **0,989**, k-Modes (Huang) ca. **0,381**
+- Stärkster untersuchter externer Zusammenhang: Unternehmensgröße mit korrigiertem Cramér's V ca. **0,241**
 
-## Datenschutz und Reproduzierbarkeit
+**Interpretation:** Die Cluster erfassen Antwortmuster und Unterstützungswahrnehmungen, keine stabilen psychologischen Mitarbeitendentypen. Die freiwillige Befragung ist nicht nachweislich repräsentativ. Die geringe Trennschärfe, die Dominanz einer Informationsfrage und mögliche gemeinsame Arbeitgeber schränken die Übertragbarkeit ein. Es dürfen keine individuellen Personalentscheidungen daraus abgeleitet werden.
 
-Der Ordner `results/` enthält **nur aggregierte Abbildungen**, keine Rohdatensätze, keine Zeilen aus dem ursprünglichen Survey und keine identifizierenden Angaben. Tabellen und Abbildungen werden beim Ausführen des Notebooks reproduzierbar in `results/` gespeichert. Die im Notebook enthaltenen Ausgaben wurden auf gespeicherte Fehlermeldungen und offensichtliche Geheimnisse geprüft; sie ersetzen keine unabhängige Bewertung der Eignung der Quelle für öffentliche Weitergabe.
+## Versionierung und Nachvollziehbarkeit
+
+Die zum Abgabezeitpunkt verwendete Version kann über einen Git-Tag beziehungsweise ein GitHub-Release (z. B. `v1.0-fallstudie`) gekennzeichnet werden. **Eine solche Kennzeichnung ist erst dann verbindlich, wenn der entsprechende Tag tatsächlich auf GitHub angelegt wurde.**
+
+Die technischen Analyseschritte, Modellalternativen und Sensitivitätsanalysen sind im Notebook dokumentiert. Die zusätzlich hochgeladenen aggregierten CSVs ermöglichen eine Prüfung ausgewählter Kennzahlen ohne erneuten Durchlauf des gesamten Notebooks.
