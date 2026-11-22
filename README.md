@@ -65,6 +65,4 @@ Außerhalb von Colab können die Abhängigkeiten mit `python -m pip install -r r
 
 ## Versionierung und Nachvollziehbarkeit
 
-Die zum Abgabezeitpunkt verwendete Version kann über einen Git-Tag beziehungsweise ein GitHub-Release (z. B. `v1.0-fallstudie`) gekennzeichnet werden. **Eine solche Kennzeichnung ist erst dann verbindlich, wenn der entsprechende Tag tatsächlich auf GitHub angelegt wurde.**
-
 Die technischen Analyseschritte, Modellalternativen und Sensitivitätsanalysen sind im Notebook dokumentiert. Die zusätzlich hochgeladenen aggregierten CSVs ermöglichen eine Prüfung ausgewählter Kennzahlen ohne erneuten Durchlauf des gesamten Notebooks.
