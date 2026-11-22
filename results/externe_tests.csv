@@ -1,0 +1,7 @@
+Gruppe,Merkmal,Chi2,df,p_Wert,Cramers_V_bias_korrigiert,Min_erwartete_Zellzahl,Interpretation
+HR,Gesprächsbereitschaft,81.94164829127337,4.0,6.753744885926797e-17,0.1845641646556937,90.30366492146597,χ²-Test berichtet (alle erwarteten Zellen >= 5)
+HR,Negative Folgen,47.68623131366678,4.0,1.0971664023308435e-09,0.13817429160559433,59.396160558464224,χ²-Test berichtet (alle erwarteten Zellen >= 5)
+HR,Karrierenachteil,41.72887250725385,8.0,1.5224867396884124e-06,0.12140267242014054,6.719022687609075,χ²-Test berichtet (alle erwarteten Zellen >= 5)
+Kontext,Organisationstyp,13.897446383601855,2.0,0.0009598599286531412,0.10192774533162584,70.68411867364748,χ²-Test berichtet (alle erwarteten Zellen >= 5)
+Kontext,Unternehmensgröße,143.26254636402587,10.0,9.030661946769422e-26,0.24133046159895802,16.12565445026178,χ²-Test berichtet (alle erwarteten Zellen >= 5)
+Kontext,Arbeitsland,,,,0.14410021682427487,0.268760907504363,χ²/p nicht berichtet (erwartete Zellen < 5); V nur explorativ
